@@ -107,6 +107,40 @@ add_action( 'init', 'pipipi_register_taxonomy_artist' );
 
 
 /**
+ * Register 'artist' taxonomy for mixes
+ *
+ */
+function pipipi_register_taxonomy_series() {
+  $labels = array(
+    'name'              => _x( 'Series', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Series', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Series' ),
+    'all_items'         => __( 'All Series' ),
+    'parent_item'       => __( 'Parent Series' ),
+    'parent_item_colon' => __( 'Parent Series:' ),
+    'not_found'         => __( 'No series found.', 'textdomain' ),
+    'not_found_in_trash'=> __( 'No series found in Trash.', 'textdomain' ),
+    'edit_item'         => __( 'Edit Series' ),
+    'update_item'       => __( 'Update Series' ),
+    'add_new_item'      => __( 'Add New Series' ),
+    'new_item_name'     => __( 'New Series Name' ),
+    'menu_name'         => __( 'Series' ),
+  );
+  $args   = array(
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => [ 'slug' => 'series' ],
+  );
+
+  register_taxonomy( 'series', [ 'mix' ], $args );
+}
+add_action( 'init', 'pipipi_register_taxonomy_series' );
+
+/**
  * Add custom fields to mix post type
  *
  */

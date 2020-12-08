@@ -5,6 +5,13 @@
 *.swp
 Thumbs.db
 
+# this project-specific
+wp-content/themes/pipipi-v1/config.codekit3
+pipipi.sublime-project
+pipipi.sublime-workspace
+wp-content/themes/pipipi-v1/config.codekit3
+wp-content/plugins/config.codekit3
+
 # wordpress specific
 wp-config.php
 wp-content/uploads/

@@ -134,7 +134,7 @@ function pipipi_v1_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'pipipi_v1_widgets_init' );
+//add_action( 'widgets_init', 'pipipi_v1_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -178,3 +178,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load 'mix' cpt on homepage.
+ */
+function pipipi_home_page_cpt_filter($query) {
+	if ( !is_admin() && $query->is_main_query() && is_home() ) {
+		$query->set('post_type', array( 'mix' ) );
+	}
+}
+
+add_action('pre_get_posts','pipipi_home_page_cpt_filter');

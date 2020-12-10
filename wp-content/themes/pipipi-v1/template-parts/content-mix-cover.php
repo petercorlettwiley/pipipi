@@ -10,20 +10,24 @@
 $release_date = get_field('release_date');
 $artist_link = get_field('artist_link');
 $soundcloud_link = get_field('soundcloud_mix_link');
+$artist_name = pipipi_get_artist_name();
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
 
-		echo $artist_link;
-		echo $release_date;
-		echo $soundcloud_link;
+	<div class="wrap">
+		<a href="<?php the_permalink(); ?>">
 
-		?>
-	</header><!-- .entry-header -->
+			<header class="mix-header">
+				<?php echo $artist_name; ?>
+			</header><!-- .mix-header -->
+	
+			<div class="mix-art">
+				<?php the_post_thumbnail( 'full' ); ?>
+			</div>
 
-	<?php pipipi_v1_post_thumbnail(); ?>
+		</a>
+	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

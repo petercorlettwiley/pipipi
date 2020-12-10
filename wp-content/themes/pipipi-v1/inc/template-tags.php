@@ -163,3 +163,31 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+if ( ! function_exists( 'pipipi_get_artist_name' ) ) :
+	/**
+	 * Shim for sites older than 5.2.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function pipipi_get_artist_name() {
+
+		//$name = get_the_terms( get_the_ID(), 'artist' )[0]->name;
+		//f ( get_the_terms( get_the_ID(), 'artist' )[0]->name ) {
+			//return get_the_terms( get_the_ID(), 'artist' )[0]->name;
+		// else {
+			//return false;
+		//
+
+		if( has_term('', 'artist') ){
+		    // do something
+			return get_the_terms( get_the_ID(), 'artist' )[0]->name;
+		} else {
+			return false;
+		}
+
+		//if ( $name ) {
+		//	return $name;
+		//}
+	}
+endif;

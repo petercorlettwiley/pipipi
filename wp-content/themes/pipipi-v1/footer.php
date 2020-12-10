@@ -13,7 +13,7 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			© <?php echo date("Y"); ?> pipipi
+			<span class="screen-reader-text">© <?php echo date("Y"); ?> pipipi</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

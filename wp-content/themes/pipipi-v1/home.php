@@ -14,14 +14,18 @@ get_header();
 	<main id="primary" class="site-main">
 
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+    <div class="horizontal-scroll-wrapper">
 
-			get_template_part( 'template-parts/content', 'mix-cover' );
+		  <?php
+		  while ( have_posts() ) :
+		  	the_post();
+  
+		  	get_template_part( 'template-parts/content', 'mix-cover' );
+  
+		  endwhile; // End of the loop.
+		  ?>
 
-		endwhile; // End of the loop.
-		?>
+    </div>
 
 	</main><!-- #main -->
 

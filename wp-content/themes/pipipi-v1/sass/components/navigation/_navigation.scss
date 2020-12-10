@@ -1,59 +1,35 @@
+$nav_offset: 1rem;
+$nav_button_size: 2rem;
+$nav_button_margin: 0.5rem;
+
 .main-navigation {
 	display: block;
-	width: 100%;
-
+ 
 	ul {
-		display: none;
+		display: flex;
+		flex-direction: column;
 		list-style: none;
+		position: fixed;
+		padding: 0;
 		margin: 0;
-		padding-left: 0;
+		top: $nav_offset;
+		right: $nav_offset;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
+		li {
+			margin-bottom: $nav_button_margin;
 
 			a {
-				width: 200px;
+				width: $nav_button_size;
+				height: $nav_button_size;
+				overflow: hidden;
+
+				// temp
+				background: blue;
+
+				&:hover, &:focus, &:active {
+					background: red;
+				}
 			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-
-	li {
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
 		}
 	}
 

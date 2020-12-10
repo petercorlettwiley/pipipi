@@ -28,25 +28,27 @@
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
-			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<span class="screen-reader-text"><h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1></span>
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<span class="screen-reader-text"><p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p></span>
 				<?php
 			endif;
+
 			$pipipi_v1_description = get_bloginfo( 'description', 'display' );
+
 			if ( $pipipi_v1_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $pipipi_v1_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<span class="screen-reader-text"><p class="site-description"><?php echo $pipipi_v1_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p></span>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'pipipi-v1' ); ?></button>
+			<!--button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'pipipi-v1' ); ?></button-->
+
 			<?php
 			wp_nav_menu(
 				array(

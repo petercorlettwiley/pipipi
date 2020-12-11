@@ -184,6 +184,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function pipipi_home_page_cpt_filter($query) {
 	if ( !is_admin() && $query->is_main_query() && is_home() ) {
 		$query->set('post_type', array( 'mix' ) );
+		$query->set('meta_key', 'release_date');
+		$query->set('orderby', 'meta_value');
+		$query->set('order', 'DESC');
 	}
 }
 

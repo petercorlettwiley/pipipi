@@ -1,0 +1,87 @@
+$size__mix-art: 20rem;
+
+.home {
+
+  .horizontal-scroll-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+    & > article {
+      flex: 0 0 auto;
+    }
+  }
+
+  .mix-art {
+    width: $size__mix-art;
+    height: $size__mix-art;
+    overflow: hidden;
+  }
+}
+//.scrolling-wrapper-flexbox {
+//  display: flex;
+//  flex-wrap: nowrap;
+//  overflow-x: auto;
+//
+//  .card {
+//    flex: 0 0 auto;
+//  }
+//}
+///* temp!! */
+//
+//$finalHeight: 400px;
+//$finalWidth: 3 * $finalHeight;
+//$scrollBarHeight: 1px;
+//
+//::-webkit-scrollbar {
+//  width: $scrollBarHeight;
+//  height: $scrollBarHeight;
+//}
+//
+//::-webkit-scrollbar-button {
+//  width: $scrollBarHeight;
+//  height: $scrollBarHeight;
+//}
+//
+//.horizontal-scroll-wrapper {
+//  position: absolute;
+//  display: block;
+//  top: 0;
+//  left: 0;
+//  width: calc(#{$finalHeight} + #{$scrollBarHeight});
+//  max-height: $finalWidth;
+//  margin: 0;
+//  padding-top: $scrollBarHeight;
+//  background: #abc;
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//  transform: rotate(-90deg) translateY(-$finalHeight);
+//  transform-origin: right top;
+//  & > div {
+//    display: block;
+//    padding: 5px;
+//    background: #cab;
+//    transform: rotate(90deg);
+//    transform-origin: right top;
+//  }
+//
+//  .mix {
+//    transform: rotate(90deg);
+//    transform-origin: right top;
+//  }
+//}
+
+//.mix {
+//  padding: $finalHeight 0 0 0;
+//  & > div {
+//    width: $finalHeight;
+//    height: $finalHeight;
+//    margin: 10px 0;
+//  }
+//}

@@ -13,7 +13,6 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-
     <div class="horizontal-scroll-wrapper">
 
 		  <?php

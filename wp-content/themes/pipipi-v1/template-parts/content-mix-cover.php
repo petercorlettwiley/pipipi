@@ -27,6 +27,10 @@ $artist_name = pipipi_get_artist_name();
 				<?php the_post_thumbnail( 'full' ); ?>
 			</div>
 
+			<div class="mix-title">
+				<?php the_title(); ?>
+			</div>
+
 		</a>
 	</div>
 

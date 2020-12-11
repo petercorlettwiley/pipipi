@@ -614,42 +614,24 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-/* temp!! */
-::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
-}
-
-::-webkit-scrollbar-button {
-  width: 1px;
-  height: 1px;
-}
-
-.horizontal-scroll-wrapper {
-  position: absolute;
-  display: block;
+.home .horizontal-scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  align-items: center;
+  position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
-  width: calc(400px + 1px);
-  max-height: 1200px;
-  margin: 0;
-  padding-top: 1px;
-  background: #abc;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transform: rotate(-90deg) translateY(-400px);
-  transform-origin: right top;
+  right: 0;
 }
-.horizontal-scroll-wrapper > div {
-  display: block;
-  padding: 5px;
-  background: #cab;
-  transform: rotate(90deg);
-  transform-origin: right top;
+.home .horizontal-scroll-wrapper > article {
+  flex: 0 0 auto;
 }
-.horizontal-scroll-wrapper .mix {
-  transform: rotate(90deg);
-  transform-origin: right top;
+.home .mix-art {
+  width: 20rem;
+  height: 20rem;
+  overflow: hidden;
 }
 
 /*--------------------------------------------------------------

@@ -145,6 +145,8 @@ function pipipi_v1_scripts() {
 
 	wp_enqueue_script( 'pipipi-v1-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+	wp_enqueue_script( 'pipipi-v1-horizontal-scroller', get_template_directory_uri() . '/js/horizontal-scroller.js', array(), _S_VERSION, true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

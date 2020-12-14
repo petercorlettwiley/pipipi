@@ -630,6 +630,9 @@ textarea {
 .home .horizontal-scroll-wrapper > article {
   flex: 0 0 auto;
 }
+.home .horizontal-scroll-wrapper > article.centered {
+  background-color: red;
+}
 .home .mix-art {
   width: 20rem;
   height: 20rem;

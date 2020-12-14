@@ -1,6 +1,9 @@
 var doc = window.document,
   context = doc.querySelector('.horizontal-scroll-wrapper'),
   clones, //context.querySelectorAll('.is-clone')
+  childOffsets = [],
+  windowWidth = window.innerWidth,
+  lastIndex = 0,
   disableScroll = false,
   scrollWidth = 0,
   scrollPos = 0,
@@ -45,9 +48,20 @@ function reCalc () {
   scrollPos = getScrollPos();
   scrollWidth = context.scrollWidth;
   clonesWidth = getClonesWidth();
+  getChildrenOffsets();
+  windowWidth = window.innerWidth;
 
   if (scrollPos <= 0) {
     setScrollPos(1); // Scroll 1 pixel to allow upwards scrolling
+  }
+}
+
+function getChildrenOffsets () {
+  childOffsets = [];
+
+  for (var i = 0; i < context.children.length; i++) {
+    var child = context.children[i];
+    childOffsets.push(child.getBoundingClientRect().left);
   }
 }
 
@@ -64,6 +78,20 @@ function scrollUpdate () {
       setScrollPos(scrollWidth - clonesWidth);
       disableScroll = true;
     }
+    
+    // closest index?
+    const middleScroll = scrollPos + windowWidth/2 - 200;
+    const diffArr = childOffsets.map(x => Math.abs(middleScroll - x));
+    const minNumber = Math.min(...diffArr);
+    const index = diffArr.findIndex(x => x === minNumber);
+
+    if (index !== lastIndex) {
+      context.children[lastIndex].classList.remove('centered');
+      context.children[index].classList.add('centered');
+      lastIndex = index;
+    }
+
+    //checkCenterItem();
   }
 
   if (disableScroll) {

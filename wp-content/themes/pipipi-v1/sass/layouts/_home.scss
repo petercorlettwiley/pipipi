@@ -17,6 +17,10 @@ $size__mix-art: 20rem;
   
     & > article {
       flex: 0 0 auto;
+
+      &.centered {
+        background-color: red;
+      }
     }
   }
 

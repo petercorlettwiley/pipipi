@@ -3,7 +3,8 @@ var doc = window.document,
   clones, //context.querySelectorAll('.is-clone')
   childOffsets = [],
   windowWidth = window.innerWidth,
-  lastIndex = 0,
+  lastIndex = -1,
+  index,
   disableScroll = false,
   scrollWidth = 0,
   scrollPos = 0,
@@ -11,7 +12,7 @@ var doc = window.document,
   i = 0;
 
 function getScrollPos () {
-  return (context.pageYOffset || context.scrollLeft) - (context.clientTop || 0);
+  return (context.pageXOffset || context.scrollLeft) - (context.clientLeft || 0);
 }
 
 function setScrollPos (pos) {
@@ -50,10 +51,23 @@ function reCalc () {
   clonesWidth = getClonesWidth();
   getChildrenOffsets();
   windowWidth = window.innerWidth;
+  scrollUpdate();
 
   if (scrollPos <= 0) {
     setScrollPos(1); // Scroll 1 pixel to allow upwards scrolling
   }
+
+  // Setup isScrolling variable
+  var isScrolling;
+  
+  context.addEventListener('scroll', function () {  // Listen for scroll events
+    window.clearTimeout( isScrolling );// Clear our timeout throughout the scroll
+  
+    isScrolling = setTimeout(function() { // Set a timeout to run after scrolling ends
+      scrollToIndex(getIndex());
+    }, 66);
+  
+  }, false);
 }
 
 function getChildrenOffsets () {
@@ -61,13 +75,24 @@ function getChildrenOffsets () {
 
   for (var i = 0; i < context.children.length; i++) {
     var child = context.children[i];
-    childOffsets.push(child.getBoundingClientRect().left);
+    childOffsets.push(child.offsetLeft);
   }
 }
 
+function getIndex () {
+  const middleScroll = scrollPos + windowWidth/2 - (childOffsets[2] - childOffsets[1])/2;
+  const diffArr = childOffsets.map(x => Math.abs(middleScroll - x));
+  const minNumber = Math.min(...diffArr);
+  index = diffArr.findIndex(x => x === minNumber);
+
+  return index;
+}
+
 function scrollUpdate () {
+
+  scrollPos = getScrollPos();
+
   if (!disableScroll) {
-    scrollPos = getScrollPos();
 
     if (clonesWidth + scrollPos >= scrollWidth) {
       // Scroll to the top when you’ve reached the bottom
@@ -78,20 +103,20 @@ function scrollUpdate () {
       setScrollPos(scrollWidth - clonesWidth);
       disableScroll = true;
     }
-    
-    // closest index?
-    const middleScroll = scrollPos + windowWidth/2 - 200;
-    const diffArr = childOffsets.map(x => Math.abs(middleScroll - x));
-    const minNumber = Math.min(...diffArr);
-    const index = diffArr.findIndex(x => x === minNumber);
 
+    index = getIndex();
+    const numberOfChildren = childOffsets.length/2;
+  
     if (index !== lastIndex) {
-      context.children[lastIndex].classList.remove('centered');
+      if (typeof context.children[lastIndex] !== 'undefined') {
+        context.children[lastIndex].classList.remove('centered');
+        context.children[(lastIndex + numberOfChildren) % childOffsets.length].classList.remove('centered');
+      }
+      //context.children[lastIndex].classList.remove('centered');
       context.children[index].classList.add('centered');
+      context.children[(index + numberOfChildren) % childOffsets.length].classList.add('centered');
       lastIndex = index;
     }
-
-    //checkCenterItem();
   }
 
   if (disableScroll) {
@@ -100,6 +125,22 @@ function scrollUpdate () {
       disableScroll = false;
     }, 40);
   }
+}
+
+function scrollToIndex(index) {
+
+  const childWidth = (childOffsets[2] - childOffsets[1]);
+  const childPerPage = windowWidth / childWidth;
+  //const destination = childOffsets[index - Math.floor(childPerPage/2)];
+  //const adjust = windowWidth/2 - (childOffsets[index] % childWidth);// * childWidth) - windowWidth)/2;// * childWidth / windowWidth;
+  //console.log(childPerPage, adjust, childPerPage+2);
+
+  const destination = childOffsets[index] - windowWidth/2 + childWidth/2;
+
+  context.scrollTo({
+    left: destination,//,
+    behavior: 'smooth'
+  });
 }
 
 function init () {
@@ -120,9 +161,3 @@ if (document.readyState !== 'loading') {
 } else {
   document.addEventListener('DOMContentLoaded', init, false);
 }
-
-
-// Just for this demo: Center the middle block on page load
-//window.onload = function () {
-//  setScrollPos(Math.round(clones[0].getBoundingClientRect().top + getScrollPos() - (context.offsetHeight - clones[0].offsetHeight) / 2));
-//};

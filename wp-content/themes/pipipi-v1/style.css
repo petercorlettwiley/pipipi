@@ -629,14 +629,21 @@ textarea {
 }
 .home .horizontal-scroll-wrapper > article {
   flex: 0 0 auto;
+  width: 24rem;
 }
-.home .horizontal-scroll-wrapper > article.centered {
-  background-color: red;
+.home .horizontal-scroll-wrapper > article .wrap {
+  display: flex;
+  justify-content: center;
 }
-.home .mix-art {
-  width: 20rem;
-  height: 20rem;
-  overflow: hidden;
+.home .horizontal-scroll-wrapper > article .wrap a {
+  width: 16rem;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.home .horizontal-scroll-wrapper > article.centered .wrap a {
+  width: 22rem;
 }
 
 /*--------------------------------------------------------------

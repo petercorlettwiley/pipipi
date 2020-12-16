@@ -7,9 +7,9 @@
  * @package pipipi-v1
  */
 
-$release_date = get_field('release_date');
-$artist_link = get_field('artist_link');
-$soundcloud_link = get_field('soundcloud_mix_link');
+$release_date = pipipi_get_release_date();
+$artist_link = pipipi_get_artist_link();
+$soundcloud_link = pipipi_get_sc_link();
 
 ?>
 

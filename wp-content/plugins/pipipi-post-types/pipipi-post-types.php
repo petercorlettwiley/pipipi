@@ -275,3 +275,55 @@ function pipipi_mix_title_placeholder($title , $post){
     return $title;
 
 }
+
+
+/**
+ * Add custom field to series taxonomy field
+ *
+ */
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+    'key' => 'group_5fd94a01d01cf',
+    'title' => 'Additional Series Settings',
+    'fields' => array(
+        array(
+            'key' => 'field_5fd94a0705611',
+            'label' => 'Series Display Name',
+            'name' => 'series_display_name',
+            'type' => 'text',
+            'instructions' => 'The series name that will display on the front end.',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => 'e.g. \'Mix\'',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'taxonomy',
+                'operator' => '==',
+                'value' => 'series',
+            ),
+        ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'seamless',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+));
+
+endif;

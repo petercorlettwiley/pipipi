@@ -171,23 +171,76 @@ if ( ! function_exists( 'pipipi_get_artist_name' ) ) :
 	 * @link https://core.trac.wordpress.org/ticket/12563
 	 */
 	function pipipi_get_artist_name() {
-
-		//$name = get_the_terms( get_the_ID(), 'artist' )[0]->name;
-		//f ( get_the_terms( get_the_ID(), 'artist' )[0]->name ) {
-			//return get_the_terms( get_the_ID(), 'artist' )[0]->name;
-		// else {
-			//return false;
-		//
-
 		if( has_term('', 'artist') ){
 		    // do something
 			return get_the_terms( get_the_ID(), 'artist' )[0]->name;
 		} else {
 			return false;
 		}
+	}
+endif;
 
-		//if ( $name ) {
-		//	return $name;
-		//}
+if ( ! function_exists( 'pipipi_get_mix_series' ) ) :
+	/**
+	 * Shim for sites older than 5.2.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function pipipi_get_mix_series() {
+		if( has_term('', 'series') ){
+		    // do something
+			$term_id = get_the_terms( get_the_ID(), 'series' )[0]->term_id;
+			return get_field('series_display_name', 'term_'.$term_id);
+		} else {
+			return false;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pipipi_get_sc_link' ) ) :
+	/**
+	 * Shim for sites older than 5.2.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function pipipi_get_sc_link() {
+
+		if( get_field('soundcloud_mix_link') ){
+			return get_field('soundcloud_mix_link');
+		} else {
+			return false;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pipipi_get_artist_link' ) ) :
+	/**
+	 * Shim for sites older than 5.2.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function pipipi_get_artist_link() {
+
+		if( get_field('artist_link') ){
+			return get_field('artist_link');
+		} else {
+			return false;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pipipi_get_release_date' ) ) :
+	/**
+	 * Shim for sites older than 5.2.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function pipipi_get_release_date() {
+
+		if( get_field('release_date') ){
+			return get_field('release_date');
+		} else {
+			return false;
+		}
 	}
 endif;

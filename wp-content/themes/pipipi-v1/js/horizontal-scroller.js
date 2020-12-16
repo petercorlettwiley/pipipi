@@ -130,11 +130,6 @@ function scrollUpdate () {
 function scrollToIndex(index) {
 
   const childWidth = (childOffsets[2] - childOffsets[1]);
-  const childPerPage = windowWidth / childWidth;
-  //const destination = childOffsets[index - Math.floor(childPerPage/2)];
-  //const adjust = windowWidth/2 - (childOffsets[index] % childWidth);// * childWidth) - windowWidth)/2;// * childWidth / windowWidth;
-  //console.log(childPerPage, adjust, childPerPage+2);
-
   const destination = childOffsets[index] - windowWidth/2 + childWidth/2;
 
   context.scrollTo({

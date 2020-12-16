@@ -150,6 +150,10 @@ function pipipi_v1_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_style( 'pipipi-v1-google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap', false ); 
+
+	// https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap
 }
 add_action( 'wp_enqueue_scripts', 'pipipi_v1_scripts' );
 
@@ -191,5 +195,12 @@ function pipipi_home_page_cpt_filter($query) {
 		$query->set('order', 'DESC');
 	}
 }
+add_action('pre_get_posts', 'pipipi_home_page_cpt_filter');
 
-add_action('pre_get_posts','pipipi_home_page_cpt_filter');
+/**
+ * Register menu location on archives
+ */
+function pipipi_register_archive_menu() {
+  register_nav_menu( 'archive-menu', __( 'Archive Menu' ) );
+}
+add_action( 'after_setup_theme', 'pipipi_register_archive_menu' );

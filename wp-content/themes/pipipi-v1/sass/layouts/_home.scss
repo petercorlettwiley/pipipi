@@ -34,6 +34,7 @@ $size__mix-art-small: 15rem;
           text-decoration: none;
 
           .mix-header, .mix-title {
+            color: $color__white;
             opacity: 0;
             transition: color 0s;
             transition: opacity 0.5s;
@@ -64,6 +65,12 @@ $size__mix-art-small: 15rem;
 
       &.centered .wrap a {
         width: $size__mix-art-large;
+      }
+    
+      .wrap a:hover {
+        .mix-header, .mix-title {
+          color: $color__link-hover;
+        }
       }
     }
   }

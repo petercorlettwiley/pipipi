@@ -22,13 +22,38 @@ $nav_button_margin: 0.5rem;
 			a {
 				width: $nav_button_size;
 				height: $nav_button_size;
+				font-size: 0;
 				overflow: hidden;
 
-				// temp
-				background: blue;
+				background-size: contain;
+				background-position: 50%;
+				background-repeat: no-repeat;
+				filter: blur(0);
+
+				&[href*='mix'] {
+					background-image: url($image__icon-index);
+				}
+
+				&[href*='about'] {
+					background-image: url($image__icon-about);
+				}
+
+				&[href*='dice'] {
+					background-image: url($image__icon-dice);
+				}
+
+				&[href*='acid'] {
+					background-image: url($image__icon-acid);
+				}
 
 				&:hover, &:focus, &:active {
-					background: red;
+					filter: blur(0.1rem);
+				}
+			}
+
+			&.current-menu-item {
+				a {
+					filter: blur(0.08rem);
 				}
 			}
 		}

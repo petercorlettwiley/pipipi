@@ -673,6 +673,14 @@ textarea {
   width: 18rem;
 }
 
+a.floating-logo {
+  position: fixed;
+  z-index: 10;
+  left: 2rem;
+  bottom: 2rem;
+  max-width: 6rem;
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -686,6 +694,7 @@ textarea {
   flex-direction: column;
   list-style: none;
   position: fixed;
+  z-index: 10;
   padding: 0;
   margin: 0;
   top: 1rem;
@@ -707,41 +716,8 @@ textarea {
   display: block;
   text-decoration: none;
 }
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .main-navigation ul {
-    display: flex;
-  }
-}
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-  margin: 0 0 1.5em;
-}
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-  display: flex;
-}
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  flex: 1 0 50%;
-}
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  text-align: end;
-  flex: 1 0 50%;
+.admin-bar .main-navigation ul {
+  top: calc(32px + 1rem);
 }
 
 /* Posts and pages

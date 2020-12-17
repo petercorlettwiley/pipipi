@@ -166,9 +166,7 @@ endif;
 
 if ( ! function_exists( 'pipipi_get_artist_name' ) ) :
 	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
+	 * Get mix's artist name
 	 */
 	function pipipi_get_artist_name() {
 		if( has_term('', 'artist') ){
@@ -182,9 +180,7 @@ endif;
 
 if ( ! function_exists( 'pipipi_get_mix_series' ) ) :
 	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
+	 * Get mix's series
 	 */
 	function pipipi_get_mix_series() {
 		if( has_term('', 'series') ){
@@ -199,9 +195,7 @@ endif;
 
 if ( ! function_exists( 'pipipi_get_sc_link' ) ) :
 	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
+	 * Get SC link
 	 */
 	function pipipi_get_sc_link() {
 
@@ -215,9 +209,7 @@ endif;
 
 if ( ! function_exists( 'pipipi_get_artist_link' ) ) :
 	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
+	 * Get artist link
 	 */
 	function pipipi_get_artist_link() {
 
@@ -231,14 +223,31 @@ endif;
 
 if ( ! function_exists( 'pipipi_get_release_date' ) ) :
 	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
+	 * Get mix's release date
 	 */
 	function pipipi_get_release_date() {
 
 		if( get_field('release_date') ){
 			return get_field('release_date');
+		} else {
+			return false;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pipipi_get_floating_logo' ) ) :
+	/**
+	 * Get the floating logo from customizer options
+	 */
+	function pipipi_get_floating_logo() {
+
+		//wp_get_attachment_image_src( $attachment_id, $size
+
+		$floating_logo_url = wp_get_attachment_image_src(get_theme_mod('floating_logo'), 'full')[0];
+		//print_r($floating_logo_url);
+
+		if( $floating_logo_url ){
+			return '<a href="/" class="floating-logo"><img src="' . $floating_logo_url . '" alt="' . 'name' . '"></a>';
 		} else {
 			return false;
 		}

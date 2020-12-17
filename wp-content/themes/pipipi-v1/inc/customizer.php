@@ -31,6 +31,25 @@ function pipipi_v1_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	$wp_customize->add_section(
+		'pipipi_settings',
+		array(
+    	'title'      => __( 'PIPIPI Settings', 'pipipi-v1' ),
+    	'priority'   => 30,
+		)
+	);
+
+	$wp_customize->add_setting( 'floating_logo' , array(
+    'transport' => 'refresh',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'floating_logo', array(
+		'label'      => __( 'Floating Logo', 'pipipi-v1' ),
+		'section'    => 'pipipi_settings',
+		'settings'   => 'floating_logo',
+		'mime_type' => 'image',
+	) ) );
 }
 add_action( 'customize_register', 'pipipi_v1_customize_register' );
 

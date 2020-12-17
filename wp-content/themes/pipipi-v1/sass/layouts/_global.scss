@@ -1,0 +1,11 @@
+$floating_logo_offset: 2rem;
+$floating_logo_max-width: 6rem;
+
+
+a.floating-logo {
+  position: fixed;
+  z-index: 10;
+  left: $floating_logo_offset;
+  bottom: $floating_logo_offset;
+  max-width: $floating_logo_max-width;
+}

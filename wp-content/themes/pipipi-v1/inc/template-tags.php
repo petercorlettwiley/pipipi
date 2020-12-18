@@ -298,3 +298,19 @@ if ( ! function_exists( 'pipipi_get_sc_player' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'pipipi_get_logo' ) ) :
+	/**
+	 * Get main logo image
+	 */
+	function pipipi_get_logo() {
+		
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+		if( $custom_logo_id ){
+			$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' )[0];
+			return '<img src="' . $logo . '" alt="' . get_bloginfo('name') . '">';
+		} else {
+			return false;
+		}
+	}
+endif;

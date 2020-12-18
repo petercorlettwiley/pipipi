@@ -1,5 +1,35 @@
 .archive {
 
+  #archive-navigation {
+    #archive-menu {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 1rem 1rem 3rem;
+
+      li {
+        padding-right: 5rem;
+        max-width: 25%;
+
+        &:last-child {
+          padding-right: 0;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        &.current-menu-item {
+          a {
+            display: inline-block;
+            padding-bottom: 0.25em;
+            border-bottom: 1px solid $color__text-screen;
+          }
+        }
+      }
+    }
+  }
+
   article.mix {
 
     .wrap {
@@ -10,6 +40,19 @@
         padding: 1rem;
         border-top: 1px solid $color__text-screen;
         position: relative;
+        text-decoration: none;
+
+        header.mix-header {
+          width: calc(33% + 1rem);
+          //min-width: 10rem;
+          padding-right: 1rem;
+        }
+        
+        .mix-artist {
+          width: calc(33% + 1rem);
+          //min-width: 12rem;
+          padding-right: 1rem;
+        }
 
         &:after {
           content: '';
@@ -44,10 +87,29 @@
 
   .archive {
 
+    #archive-navigation {
+      #archive-menu {
+        padding: 2rem 2rem 3rem;
+        margin-top: 4rem;
+      }
+    }
+
     article.mix {
       .wrap {
         a {
           padding: 2rem 2rem;
+
+          header.mix-header {
+            width: 25%;
+            min-width: 14rem;
+            padding-right: 1rem;
+          }
+          
+          .mix-artist {
+            width: 25%;
+            min-width: 14rem;
+            padding-right: 1rem;
+          }
         }
       }
     }

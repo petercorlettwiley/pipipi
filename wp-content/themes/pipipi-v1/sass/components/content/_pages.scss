@@ -1,0 +1,23 @@
+body.page {
+  
+  article.page {
+    padding: 2rem 1rem;
+    max-width: $size__page-max-width;
+  }
+}
+
+@media screen and (min-width: $breakpoint__mobile) {
+
+  body.page {
+
+    main#primary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    article.page {
+      padding: 4rem 2rem;
+    }
+  }
+}

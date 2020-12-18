@@ -1,5 +1,9 @@
 body.single-mix {
 
+  &.custom-background {
+    background-image: none !important;
+  }
+
   main#primary {
 
   }

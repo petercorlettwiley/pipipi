@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<span class="screen-reader-text"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></span>
 	</header><!-- .entry-header -->
 
 	<?php pipipi_v1_post_thumbnail(); ?>

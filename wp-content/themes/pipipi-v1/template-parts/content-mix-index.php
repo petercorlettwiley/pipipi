@@ -20,20 +20,20 @@ $mix_series = pipipi_get_mix_series();
 	<div class="wrap">
 		<a href="<?php the_permalink(); ?>">
 
+			<div class="mix-art">
+				<?php the_post_thumbnail( 'full' ); ?>
+			</div>
+
 			<header class="mix-header">
 				<?php the_title(); ?>
 			</header><!-- .mix-header -->
 
-			<div class="mix-title">
+			<div class="mix-artist">
 				<?php echo $artist_name; ?>
 			</div>
 
 			<div class="mix-series">
 				<?php echo $mix_series; ?>
-			</div>
-	
-			<div class="mix-art">
-				<?php the_post_thumbnail( 'full' ); ?>
 			</div>
 
 		</a>

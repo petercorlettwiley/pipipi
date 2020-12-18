@@ -193,14 +193,14 @@ if ( ! function_exists( 'pipipi_get_mix_series' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'pipipi_get_sc_link' ) ) :
+if ( ! function_exists( 'pipipi_get_sc_key' ) ) :
 	/**
 	 * Get SC link
 	 */
-	function pipipi_get_sc_link() {
+	function pipipi_get_sc_key() {
 
-		if( get_field('soundcloud_mix_link') ){
-			return get_field('soundcloud_mix_link');
+		if( get_field('soundcloud_mix_key') ){
+			return get_field('soundcloud_mix_key');
 		} else {
 			return false;
 		}
@@ -213,8 +213,36 @@ if ( ! function_exists( 'pipipi_get_artist_link' ) ) :
 	 */
 	function pipipi_get_artist_link() {
 
-		if( get_field('artist_link') ){
-			return get_field('artist_link');
+		if( get_field('artist_link') && get_field('artist_sc_account') ){
+			return '<a href="' . get_field('artist_link') . '" target="_blank">' . get_field('artist_sc_account') . '</a>';
+		} else {
+			return false;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pipipi_get_artist_location' ) ) :
+	/**
+	 * Get artist location
+	 */
+	function pipipi_get_artist_location() {
+
+		if( get_field('artist_location') ){
+			return get_field('artist_location');
+		} else {
+			return false;
+		}
+	}
+endif;
+
+if ( ! function_exists( 'pipipi_get_artist_info' ) ) :
+	/**
+	 * Get artist location
+	 */
+	function pipipi_get_artist_info() {
+
+		if( get_field('artist_info') ){
+			return get_field('artist_info');
 		} else {
 			return false;
 		}
@@ -253,3 +281,20 @@ if ( ! function_exists( 'pipipi_get_floating_logo' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'pipipi_get_sc_player' ) ) :
+	/**
+	 * Get the sc player for a given mix
+	 */
+	function pipipi_get_sc_player() {
+
+		$sc_key = pipipi_get_sc_key();
+
+		if( $sc_key ){
+			return '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $sc_key . '&color=%000000&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>';
+		} else {
+			return false;
+		}
+	}
+endif;
+

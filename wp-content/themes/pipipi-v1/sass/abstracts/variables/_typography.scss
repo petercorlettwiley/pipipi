@@ -8,3 +8,12 @@ $font__line-height-pre: 1.5;
 
 $font__size-body: 16px;
 $font__line-height-body: 1.25;
+
+.margin__firstlastchild {
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,23 +1,129 @@
-.sticky {
-	display: block;
+body.single-mix {
+
+  main#primary {
+
+  }
+
+  article.mix {
+
+    max-width: $size__page-max-width;
+    padding: 1rem 1rem 3rem;
+
+    header {
+      margin-bottom: 4rem;
+
+      h1 {
+        margin-bottom: 0.25em;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+  
+    .entry-content {
+  
+      .columns {
+        display: flex;
+        flex-direction: column;
+
+        .column-left {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin-bottom: 2rem;
+          padding-bottom: 2rem;
+          border-bottom: 1px solid $color__text-screen;
+
+          iframe { // sc player
+            margin-bottom: 2rem;
+          }
+
+          .post-thumbnail {
+            width: calc(33% + 2rem);
+            padding-right: 4rem;
+          }
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        margin-top: 3rem;
+        border-top: 1px solid $color__text-screen;
+        padding-top: 3rem;
+
+        div {
+          width: 50%;
+
+          &.nav-next {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
 }
 
-.post,
-.page {
-	margin: 0 0 1.5em;
-}
+@media screen and (min-width: $breakpoint__mobile) {
 
-.updated:not(.published) {
-	display: none;
-}
+  body.single-mix {
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
+    main#primary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    article.mix {
+  
+      padding: 4rem 2rem;
+  
+      header {
+    
+      }
+    
+      .entry-content {
+    
+        .columns {
+          flex-direction: row;
+    
+          .column-left {
+            width: 33%;
+            padding-right: 2rem;
+            min-width: 25rem;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+  
+            .post-thumbnail {
+              padding: 0;
+              width: 100%;
+              margin-bottom: 2rem;
+            }
+          }
+    
+          .column-right {
+            flex-grow: 1;
+            flex-basis: 0;
+          }
+        }
+      }
+    }
 
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+    //nav.post-navigation {
+    //  width: calc(66% - 4rem);
+    //  margin-left: auto;
+//
+    //  .nav-links {
+    //    display: flex;
+    //    
+    //    div {
+    //      width: 50%;
+    //      padding: 0 2rem;
+    //    }
+    //  }
+    //}
+  }
 }

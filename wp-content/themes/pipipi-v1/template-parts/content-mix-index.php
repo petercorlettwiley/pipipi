@@ -10,7 +10,6 @@
 $release_date = get_field('release_date');
 $artist_link = get_field('artist_link');
 
-$soundcloud_link = pipipi_get_sc_link();
 $artist_name = pipipi_get_artist_name();
 $mix_series = pipipi_get_mix_series();
 

@@ -9,29 +9,67 @@
 
 $release_date = pipipi_get_release_date();
 $artist_link = pipipi_get_artist_link();
-$soundcloud_link = pipipi_get_sc_link();
+$sc_player = pipipi_get_sc_player();
+$artist_name = pipipi_get_artist_name();
+$artist_location = pipipi_get_artist_location();
+$artist_info = pipipi_get_artist_info();
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
 
-		echo $artist_link;
-		echo $release_date;
-		echo $soundcloud_link;
+		<?php if ( is_singular() ) : ?>
+
+			<h1><?php echo $artist_name; ?></h1>
+			<h2><?php echo get_the_title(); ?></h2>
+
+		<?php else : ?>
+
+			<h2><?php echo $artist_name; ?></h2>
+			<h3><?php echo get_the_title(); ?></h3>
+
+		<?php endif;
+
+		// pipipi_v1_post_thumbnail();
+		//echo $release_date;
+		//echo $sc_player;
 
 		?>
 	</header><!-- .entry-header -->
 
-	<?php pipipi_v1_post_thumbnail(); ?>
+	<?php // pipipi_v1_post_thumbnail(); ?>
 
 	<div class="entry-content">
+
+		<div class="columns">
+
+			<div class="column-left">
+
+				<?php echo $sc_player; ?>
+
+				<?php pipipi_v1_post_thumbnail('full'); ?>
+
+				<div class="mix-meta">
+		
+					<p><strong>Released:</strong> <?php echo $release_date; ?></p>
+		
+					<p>@<?php echo $artist_link; ?></p>
+		
+					<p><?php echo $artist_location; ?></p>
+	
+					<?php if ($artist_info) : ?>
+	
+						<p><?php echo $artist_info; ?></p>
+	
+					<?php endif; ?>
+
+				</div>
+	
+			</div>
+	
+			<div class="column-right">
+
 		<?php
 
 		the_content(
@@ -49,16 +87,16 @@ $soundcloud_link = pipipi_get_sc_link();
 			)
 		);
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pipipi-v1' ),
-				'after'  => '</div>',
-			)
-		);
+		the_post_navigation(
+				array(
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'pipipi-v1' ) . '</span> <span class="nav-title">%title</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'pipipi-v1' ) . '</span> <span class="nav-title">%title</span>',
+				)
+			);
 		?>
+
+			</div>
+		</div>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php pipipi_v1_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

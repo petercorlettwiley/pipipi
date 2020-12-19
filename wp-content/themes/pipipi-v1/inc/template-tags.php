@@ -291,7 +291,9 @@ if ( ! function_exists( 'pipipi_get_sc_player' ) ) :
 		$sc_key = pipipi_get_sc_key();
 
 		if( $sc_key ){
-			return '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $sc_key . '&color=%000000&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>';
+
+			return '<iframe width="100%" height="20" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $sc_key . '&color=%000000&inverse=false&auto_play=false&show_user=true"></iframe>';
+
 		} else {
 			return false;
 		}

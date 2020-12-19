@@ -21,3 +21,16 @@ a {
 		outline: 0;
 	}
 }
+
+
+body.single,
+body.page {
+
+	a {
+		text-decoration: none;
+		background-image: linear-gradient(to right,rgba($color__green, 1) 100%,rgba($color__green, 1) 0);
+	  background-position: 0 1.2em;
+	  background-size: 1px 1px;
+	  background-repeat: repeat-x;
+	}
+}

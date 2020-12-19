@@ -8,4 +8,5 @@ a.floating-logo {
   left: $floating_logo_offset;
   bottom: $floating_logo_offset;
   max-width: $floating_logo_max-width;
+  background: none !important;
 }

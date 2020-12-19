@@ -47,6 +47,10 @@ body.single-mix {
             width: calc(33% + 2rem);
             padding-right: 4rem;
           }
+
+          .mix-meta {
+            font-size: 0.75rem;
+          }
         }
       }
 
@@ -55,6 +59,16 @@ body.single-mix {
         margin-top: 3rem;
         border-top: 1px solid $color__text-screen;
         padding-top: 3rem;
+
+        a {
+          background: none;
+          text-transform: uppercase;
+          color: $color__green;
+
+          &:hover {
+            animation: blinker 0.1s step-end infinite;
+          }
+        }
 
         div {
           width: 50%;

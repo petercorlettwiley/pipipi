@@ -65,6 +65,11 @@ h6:last-child {
   margin-bottom: 0;
 }
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -575,6 +580,15 @@ a:hover, a:active {
   outline: 0;
 }
 
+body.single a,
+body.page a {
+  text-decoration: none;
+  background-image: linear-gradient(to right, #65ff00 100%, #65ff00 0);
+  background-position: 0 1.2em;
+  background-size: 1px 1px;
+  background-repeat: repeat-x;
+}
+
 /* Forms
 --------------------------------------------- */
 button,
@@ -721,6 +735,7 @@ a.floating-logo {
   left: 2rem;
   bottom: 2rem;
   max-width: 6rem;
+  background: none !important;
 }
 
 .archive #archive-navigation #archive-menu {
@@ -860,10 +875,13 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
   }
   body.page.page-template-page-about article.page .entry-content {
     font-size: 2rem;
-    line-height: 1.125;
+    line-height: 1.25;
   }
   body.page.page-template-page-about article.page .entry-content .wp-block-columns .wp-block-column:first-child {
     margin-bottom: 0;
+  }
+  body.page.page-template-page-about article.page .entry-content .wp-block-columns ul li:not(:first-child) {
+    margin-top: 0;
   }
 }
 /*--------------------------------------------------------------
@@ -982,11 +1000,22 @@ body.single-mix article.mix .entry-content .columns .column-left .post-thumbnail
   width: calc(33% + 2rem);
   padding-right: 4rem;
 }
+body.single-mix article.mix .entry-content .columns .column-left .mix-meta {
+  font-size: 0.75rem;
+}
 body.single-mix article.mix .entry-content .nav-links {
   display: flex;
   margin-top: 3rem;
   border-top: 1px solid #000000;
   padding-top: 3rem;
+}
+body.single-mix article.mix .entry-content .nav-links a {
+  background: none;
+  text-transform: uppercase;
+  color: #65ff00;
+}
+body.single-mix article.mix .entry-content .nav-links a:hover {
+  animation: blinker 0.1s step-end infinite;
 }
 body.single-mix article.mix .entry-content .nav-links div {
   width: 50%;

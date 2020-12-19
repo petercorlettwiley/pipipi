@@ -91,11 +91,17 @@ body.page.page-template-page-about {
 
       .entry-content {
         font-size: 2rem;
-        line-height: 1.125;
+        line-height: 1.25;
 
         .wp-block-columns {
           .wp-block-column:first-child {
             margin-bottom: 0;
+          }
+
+          ul {
+            li:not(:first-child) {
+              margin-top: 0;
+            }
           }
         }
       }

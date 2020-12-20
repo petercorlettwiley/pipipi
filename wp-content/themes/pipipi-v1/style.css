@@ -1029,6 +1029,9 @@ body.single-mix article.mix .entry-content .nav-links a:hover {
 body.single-mix article.mix .entry-content .nav-links div {
   width: 50%;
 }
+body.single-mix article.mix .entry-content .nav-links div:first-child:last-child {
+  width: 100%;
+}
 body.single-mix article.mix .entry-content .nav-links div.nav-next {
   text-align: right;
 }

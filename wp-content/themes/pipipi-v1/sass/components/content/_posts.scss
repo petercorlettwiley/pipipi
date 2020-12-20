@@ -74,6 +74,10 @@ body.single-mix {
         div {
           width: 50%;
 
+          &:first-child:last-child {
+            width: 100%;
+          }
+
           &.nav-next {
             text-align: right;
           }

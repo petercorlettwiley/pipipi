@@ -50,6 +50,28 @@ function pipipi_v1_customize_register( $wp_customize ) {
 		'settings'   => 'floating_logo',
 		'mime_type' => 'image',
 	) ) );
+
+	$wp_customize->add_setting( 'background_video' , array(
+    'transport' => 'refresh',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'background_video', array(
+		'label'      => __( 'Background Video', 'pipipi-v1' ),
+		'section'    => 'background_image',
+		'settings'   => 'background_video',
+		'mime_type' => 'video',
+	) ) );
+
+	$wp_customize->add_setting( 'background_video_acid' , array(
+    'transport' => 'refresh',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'background_video_acid', array(
+		'label'      => __( 'Background Video on Acid', 'pipipi-v1' ),
+		'section'    => 'background_image',
+		'settings'   => 'background_video_acid',
+		'mime_type' => 'video',
+	) ) );
 }
 add_action( 'customize_register', 'pipipi_v1_customize_register' );
 

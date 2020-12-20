@@ -1,0 +1,44 @@
+body.acid,
+body.acid.single,
+body.acid.page.page-template-page-about {
+  .main-navigation {
+    ul {
+      li {
+        a {
+          &[href*='mix'] {
+            background-image: url($image__icon-acid-index);
+          }
+  
+          &[href*='about'] {
+            background-image: url($image__icon-acid-about);
+          }
+  
+          &[href*='dice'] {
+            background-image: url($image__icon-acid-dice);
+          }
+  
+          &[href*='acid'] {
+            background-image: url($image__icon-acid-acid);
+          }
+        }
+      }
+    }
+  }
+}
+
+body.acid {
+  #background-video {
+    display: none;
+  }
+}
+
+body:not(.acid) {
+  #background-video-acid {
+    display: none;
+  }
+}
+
+//$image__icon-acid-index
+//$image__icon-acid-about
+//$image__icon-acid-dice
+//$image__icon-acid-acid

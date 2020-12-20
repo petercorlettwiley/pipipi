@@ -15,3 +15,14 @@ a.floating-logo {
     animation: blinker 0.1s step-end infinite;
   }
 }
+
+#background-video,
+#background-video-acid {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}

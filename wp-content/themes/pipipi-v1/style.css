@@ -413,7 +413,7 @@ input,
 select,
 optgroup,
 textarea {
-  color: #000000;
+  color: #fff;
   font-family: "Roboto Mono", monospace;
   font-size: 1rem;
   line-height: 1.25;
@@ -565,10 +565,10 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-  color: #000000;
+  color: #fff;
 }
 a:visited {
-  color: #000000;
+  color: #fff;
 }
 a:hover, a:focus, a:active {
   color: #65ff00;
@@ -746,6 +746,17 @@ a.floating-logo:hover {
   animation: blinker 0.1s step-end infinite;
 }
 
+#background-video,
+#background-video-acid {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
 .archive #archive-navigation #archive-menu {
   list-style-type: none;
   display: flex;
@@ -765,13 +776,13 @@ a.floating-logo:hover {
 .archive #archive-navigation #archive-menu li.current-menu-item a {
   display: inline-block;
   padding-bottom: 0.25em;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #fff;
 }
 .archive article.mix .wrap a {
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
-  border-top: 1px solid #000000;
+  border-top: 1px solid #fff;
   position: relative;
   text-decoration: none;
 }
@@ -791,7 +802,7 @@ a.floating-logo:hover {
   bottom: -1px;
   left: 0;
   right: 0;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #fff;
   z-index: -1;
 }
 .archive article.mix .wrap a:hover {
@@ -936,8 +947,11 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
 .main-navigation ul li a[href*=acid] {
   background-image: url("/wp-content/themes/pipipi-v1/img/normalmode.png");
 }
-.main-navigation ul li a:hover, .main-navigation ul li a:focus, .main-navigation ul li a:active {
-  filter: blur(0.1rem);
+.main-navigation ul li a:hover {
+  animation: blinker 0.1s step-end infinite;
+}
+.main-navigation ul li a:focus, .main-navigation ul li a:active {
+  filter: blur(0.08rem);
 }
 .main-navigation ul li.current-menu-item a {
   filter: blur(0.08rem);
@@ -999,7 +1013,7 @@ body.single-mix article.mix .entry-content .columns .column-left {
   flex-wrap: wrap;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #fff;
 }
 body.single-mix article.mix .entry-content .columns .column-left iframe {
   margin-bottom: 2rem;
@@ -1014,7 +1028,7 @@ body.single-mix article.mix .entry-content .columns .column-left .mix-meta {
 body.single-mix article.mix .entry-content .nav-links {
   display: flex;
   margin-top: 3rem;
-  border-top: 1px solid #000000;
+  border-top: 1px solid #fff;
   padding-top: 3rem;
 }
 body.single-mix article.mix .entry-content .nav-links a {
@@ -1227,7 +1241,7 @@ body.page article.page {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
   clip-path: none;
-  color: #000000;
+  color: #fff;
   display: block;
   font-size: 0.875rem;
   font-weight: 700;
@@ -1270,4 +1284,36 @@ body.page article.page {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+# ACID MODE
+--------------------------------------------------------------*/
+body.acid .main-navigation ul li a[href*=mix],
+body.acid.single .main-navigation ul li a[href*=mix],
+body.acid.page.page-template-page-about .main-navigation ul li a[href*=mix] {
+  background-image: url("/wp-content/themes/pipipi-v1/img/acid_index.png");
+}
+body.acid .main-navigation ul li a[href*=about],
+body.acid.single .main-navigation ul li a[href*=about],
+body.acid.page.page-template-page-about .main-navigation ul li a[href*=about] {
+  background-image: url("/wp-content/themes/pipipi-v1/img/acid_about.png");
+}
+body.acid .main-navigation ul li a[href*=dice],
+body.acid.single .main-navigation ul li a[href*=dice],
+body.acid.page.page-template-page-about .main-navigation ul li a[href*=dice] {
+  background-image: url("/wp-content/themes/pipipi-v1/img/acid_dice.png");
+}
+body.acid .main-navigation ul li a[href*=acid],
+body.acid.single .main-navigation ul li a[href*=acid],
+body.acid.page.page-template-page-about .main-navigation ul li a[href*=acid] {
+  background-image: url("/wp-content/themes/pipipi-v1/img/acidmode.png");
+}
+
+body.acid #background-video {
+  display: none;
+}
+
+body:not(.acid) #background-video-acid {
+  display: none;
 }

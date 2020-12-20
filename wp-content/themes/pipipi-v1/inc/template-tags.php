@@ -317,6 +317,33 @@ if ( ! function_exists( 'pipipi_get_logo' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'pipipi_get_bg_video' ) ) :
+	/**
+	 * Get main logo image
+	 */
+	function pipipi_get_bg_video() {
+		
+		$bg_video_id = get_theme_mod('background_video');
+		$bg_video_acid_id = get_theme_mod('background_video_acid');
+
+		//wp_get_attachment_url(get_theme_mod('background_video'));
+
+		if( $bg_video_id && $bg_video_acid_id ){
+			$bg_video_src = wp_get_attachment_url( $bg_video_id );
+			$bg_video_acid_src = wp_get_attachment_url( $bg_video_acid_id );
+
+			$bg_video_normal = '<video playsinline autoplay muted loop id="background-video"><source src="' . $bg_video_src . '" type="video/mp4"></video>';
+
+			$bg_video_acid = '<video playsinline autoplay muted loop id="background-video-acid"><source src="' . $bg_video_acid_src . '" type="video/mp4"></video>';
+
+			return $bg_video_normal . $bg_video_acid;
+
+		} else {
+			return false;
+		}
+	}
+endif;
+
 if ( ! function_exists( 'pipipi_get_all_mix_links' ) ) :
 	/**
 	 * Returns all mix links in an array

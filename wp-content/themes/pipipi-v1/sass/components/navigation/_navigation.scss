@@ -46,8 +46,11 @@ $nav_button_margin: 0.5rem;
 					background-image: url($image__icon-acid);
 				}
 
-				&:hover, &:focus, &:active {
-					filter: blur(0.1rem);
+				&:hover {
+					animation: blinker 0.1s step-end infinite;
+				}
+				&:focus, &:active {
+					filter: blur(0.08rem);
 				}
 			}
 

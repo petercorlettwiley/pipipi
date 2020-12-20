@@ -316,3 +316,26 @@ if ( ! function_exists( 'pipipi_get_logo' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'pipipi_get_all_mix_links' ) ) :
+	/**
+	 * Returns all mix links in an array
+	 */
+	function pipipi_get_all_mix_links() {
+
+		$args = array(
+		  'numberposts' => -1,
+		  'post_type'   => 'mix'
+		);
+		 
+		$mixes = get_posts( $args );
+		$mix_links = array();
+
+		foreach( $mixes as $mix ) {
+			$mix_links[] = get_permalink($mix->ID);
+		}
+
+		return $mix_links;
+		
+	}
+endif;

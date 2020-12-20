@@ -32,5 +32,9 @@ body.page {
 	  background-position: 0 1.2em;
 	  background-size: 1px 1px;
 	  background-repeat: repeat-x;
+
+	  &:hover {
+	  	filter: blur(0.1em);
+	  }
 	}
 }

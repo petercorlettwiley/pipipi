@@ -588,6 +588,10 @@ body.page a {
   background-size: 1px 1px;
   background-repeat: repeat-x;
 }
+body.single a:hover,
+body.page a:hover {
+  filter: blur(0.1em);
+}
 
 /* Forms
 --------------------------------------------- */
@@ -736,6 +740,10 @@ a.floating-logo {
   bottom: 2rem;
   max-width: 6rem;
   background: none !important;
+}
+a.floating-logo:hover {
+  filter: blur(0) !important;
+  animation: blinker 0.1s step-end infinite;
 }
 
 .archive #archive-navigation #archive-menu {
@@ -1016,6 +1024,7 @@ body.single-mix article.mix .entry-content .nav-links a {
 }
 body.single-mix article.mix .entry-content .nav-links a:hover {
   animation: blinker 0.1s step-end infinite;
+  filter: blur(0);
 }
 body.single-mix article.mix .entry-content .nav-links div {
   width: 50%;

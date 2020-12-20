@@ -9,4 +9,9 @@ a.floating-logo {
   bottom: $floating_logo_offset;
   max-width: $floating_logo_max-width;
   background: none !important;
+
+  &:hover {
+    filter: blur(0) !important;
+    animation: blinker 0.1s step-end infinite;
+  }
 }

@@ -147,6 +147,16 @@ function pipipi_v1_scripts() {
 
 	wp_enqueue_script( 'pipipi-v1-horizontal-scroller', get_template_directory_uri() . '/js/horizontal-scroller.js', array(), _S_VERSION, true );
 
+	// Register the script
+	wp_register_script( 'pipipi-v1-dice', get_template_directory_uri() . '/js/dice.js', array( 'jquery' ), _S_VERSION, true );
+
+	$mix_links = pipipi_get_all_mix_links();
+
+	wp_localize_script( 'pipipi-v1-dice', 'mixLinks', $mix_links );
+	wp_enqueue_script( 'pipipi-v1-dice' );
+
+	wp_enqueue_script( 'pipipi-v1-dice', get_template_directory_uri() . '/js/dice.js', array( 'jquery' ), _S_VERSION, true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

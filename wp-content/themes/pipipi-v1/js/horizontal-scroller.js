@@ -139,6 +139,10 @@ function scrollToIndex(index) {
 }
 
 function init () {
+  if ( !context ) {
+    return;
+  }
+
   makeClones();
   reCalc();
   

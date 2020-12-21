@@ -63,9 +63,9 @@ function reCalc () {
   context.addEventListener('scroll', function () {  // Listen for scroll events
     window.clearTimeout( isScrolling );// Clear our timeout throughout the scroll
   
-    isScrolling = setTimeout(function() { // Set a timeout to run after scrolling ends
-      scrollToIndex(getIndex());
-    }, 66);
+    //isScrolling = setTimeout(function() { // Set a timeout to run after scrolling ends
+    //  scrollToIndex(getIndex());
+    //}, 66);
   
   }, false);
 }

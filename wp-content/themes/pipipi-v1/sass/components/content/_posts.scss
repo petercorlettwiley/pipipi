@@ -40,7 +40,7 @@ body.single-mix {
           border-bottom: 1px solid $color__text-screen;
 
           iframe { // sc player
-            margin-bottom: 2rem;
+            //margin-bottom: 2rem;
           }
 
           .post-thumbnail {
@@ -66,9 +66,14 @@ body.single-mix {
           color: $color__green;
 
           &:hover {
-            animation: blinker 0.1s step-end infinite;
-            filter: blur(0);
+            //animation: blinker 0.1s step-end infinite;
+            //filter: blur(0);
           }
+        }
+
+        span.nav-subtitle {
+          display: inline-block;
+          width: 100%;
         }
 
         div {

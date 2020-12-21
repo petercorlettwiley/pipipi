@@ -713,7 +713,7 @@ textarea {
   margin: 1rem 0;
 }
 .home .horizontal-scroll-wrapper > article .wrap a .mix-art img {
-  filter: blur(0.25em);
+  filter: blur(0.15em);
   transition: filter 0.4s;
   display: block;
 }
@@ -834,6 +834,19 @@ a.floating-logo:hover {
     min-width: 14rem;
     padding-right: 1rem;
   }
+  .archive article.mix .wrap a .mix-art {
+    opacity: 0;
+    display: block;
+    position: fixed;
+    z-index: -1;
+    width: 16rem;
+    height: 16rem;
+    left: calc(50% - 8rem);
+    top: calc(50% - 8rem);
+  }
+  .archive article.mix .wrap a:hover .mix-art {
+    opacity: 1;
+  }
 }
 body.page.page-template-page-about.custom-background {
   background-image: none;
@@ -924,6 +937,8 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
 }
 .main-navigation ul li {
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 .main-navigation ul li a {
   width: 2rem;
@@ -934,6 +949,7 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
   background-position: 50%;
   background-repeat: no-repeat;
   filter: blur(0);
+  transition: all 0.4s;
 }
 .main-navigation ul li a[href*=mix] {
   background-image: url("/wp-content/themes/pipipi-v1/img/index.png");
@@ -947,13 +963,12 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
 .main-navigation ul li a[href*=acid] {
   background-image: url("/wp-content/themes/pipipi-v1/img/normalmode.png");
 }
-.main-navigation ul li a:hover {
-  animation: blinker 0.1s step-end infinite;
-}
-.main-navigation ul li a:focus, .main-navigation ul li a:active {
+.main-navigation ul li a:hover, .main-navigation ul li a:focus, .main-navigation ul li a:active {
+  width: 80%;
   filter: blur(0.08rem);
 }
 .main-navigation ul li.current-menu-item a {
+  width: 80%;
   filter: blur(0.08rem);
 }
 .main-navigation a {
@@ -1015,9 +1030,6 @@ body.single-mix article.mix .entry-content .columns .column-left {
   padding-bottom: 2rem;
   border-bottom: 1px solid #fff;
 }
-body.single-mix article.mix .entry-content .columns .column-left iframe {
-  margin-bottom: 2rem;
-}
 body.single-mix article.mix .entry-content .columns .column-left .post-thumbnail {
   width: calc(33% + 2rem);
   padding-right: 4rem;
@@ -1036,9 +1048,9 @@ body.single-mix article.mix .entry-content .nav-links a {
   text-transform: uppercase;
   color: #65ff00;
 }
-body.single-mix article.mix .entry-content .nav-links a:hover {
-  animation: blinker 0.1s step-end infinite;
-  filter: blur(0);
+body.single-mix article.mix .entry-content .nav-links span.nav-subtitle {
+  display: inline-block;
+  width: 100%;
 }
 body.single-mix article.mix .entry-content .nav-links div {
   width: 50%;

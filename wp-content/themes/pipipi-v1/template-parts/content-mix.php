@@ -46,11 +46,11 @@ $artist_info = pipipi_get_artist_info();
 
 			<div class="column-left">
 
-				<?php echo $sc_player; ?>
-
 				<?php pipipi_v1_post_thumbnail('full'); ?>
 
 				<div class="mix-meta">
+
+					<?php echo $sc_player; ?>
 		
 					<p><strong>Released:</strong> <?php echo $release_date; ?></p>
 		
@@ -87,10 +87,13 @@ $artist_info = pipipi_get_artist_info();
 			)
 		);
 
+		$next_post_id = get_next_post()->ID;
+		$previous_post_id = get_previous_post()->ID;
+
 		the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'pipipi-v1' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'pipipi-v1' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous', 'pipipi-v1' ) . '</span> <span class="nav-title">' . pipipi_get_artist_name($previous_post_id) . ' — %title</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next', 'pipipi-v1' ) . '</span> <span class="nav-title">' . pipipi_get_artist_name($next_post_id) . ' — %title</span>',
 				)
 			);
 		?>

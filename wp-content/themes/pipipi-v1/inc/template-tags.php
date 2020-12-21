@@ -168,10 +168,15 @@ if ( ! function_exists( 'pipipi_get_artist_name' ) ) :
 	/**
 	 * Get mix's artist name
 	 */
-	function pipipi_get_artist_name() {
+	function pipipi_get_artist_name($id = NULL) {
+
+		if($id == NULL) {
+			$id = get_the_ID();
+		}
+
 		if( has_term('', 'artist') ){
 		    // do something
-			return get_the_terms( get_the_ID(), 'artist' )[0]->name;
+			return get_the_terms( $id, 'artist' )[0]->name;
 		} else {
 			return false;
 		}

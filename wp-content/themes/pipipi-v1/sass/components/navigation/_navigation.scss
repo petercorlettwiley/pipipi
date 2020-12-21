@@ -18,6 +18,8 @@ $nav_button_margin: 0.5rem;
 
 		li {
 			margin-bottom: $nav_button_margin;
+			display: flex;
+  		justify-content: center;
 
 			a {
 				width: $nav_button_size;
@@ -29,6 +31,7 @@ $nav_button_margin: 0.5rem;
 				background-position: 50%;
 				background-repeat: no-repeat;
 				filter: blur(0);
+				transition: all 0.4s;
 
 				&[href*='mix'] {
 					background-image: url($image__icon-index);
@@ -46,16 +49,15 @@ $nav_button_margin: 0.5rem;
 					background-image: url($image__icon-acid);
 				}
 
-				&:hover {
-					animation: blinker 0.1s step-end infinite;
-				}
-				&:focus, &:active {
+				&:hover, &:focus, &:active {
+					width: 80%;
 					filter: blur(0.08rem);
 				}
 			}
 
 			&.current-menu-item {
 				a {
+					width: 80%;
 					filter: blur(0.08rem);
 				}
 			}

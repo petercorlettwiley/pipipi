@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: PC Wiley
 Author URI: http://www.pcwiley.net
 Description: PiPiPi wordpress theme v1
-Version: 1.0.0
+Version: 1.0.3
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -708,6 +708,7 @@ textarea {
   opacity: 0;
   transition: color 0s;
   transition: opacity 0.5s;
+  text-align: center;
 }
 .home .horizontal-scroll-wrapper > article .wrap a .mix-art {
   margin: 1rem 0;
@@ -781,6 +782,7 @@ a.floating-logo:hover {
 .archive article.mix .wrap a {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   padding: 1rem;
   border-top: 1px solid #fff;
   position: relative;

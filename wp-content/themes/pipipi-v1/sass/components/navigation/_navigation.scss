@@ -22,43 +22,63 @@ $nav_button_margin: 0.5rem;
   		justify-content: center;
 
 			a {
-				width: $nav_button_size;
-				height: $nav_button_size;
-				font-size: 0;
-				overflow: hidden;
+				margin-left: auto;
+  			display: flex;
+  			background: none;
+  			align-items: center;
+  			justify-content: flex-end;
+  			font-size: 0;
+				
+				&:after {
+					content: '';
+					display: block;
+					margin-left: 0.5rem;
+					width: $nav_button_size;
+					height: $nav_button_size;
+					overflow: hidden;
+					background-size: contain;
+					background-position: 50%;
+					background-repeat: no-repeat;
+					filter: blur(0);
+					transition: all 0.4s;
+				}
 
-				background-size: contain;
-				background-position: 50%;
-				background-repeat: no-repeat;
-				filter: blur(0);
-				transition: all 0.4s;
-
-				&[href*='mix'] {
+				&[href*='mix']:after {
 					background-image: url($image__icon-index);
 				}
 
-				&[href*='about'] {
+				&[href*='about']:after {
 					background-image: url($image__icon-about);
 				}
 
-				&[href*='dice'] {
+				&[href*='dice']:after {
 					background-image: url($image__icon-dice);
 				}
 
-				&[href*='acid'] {
+				&[href*='acid']:after {
 					background-image: url($image__icon-acid);
 				}
 
 				&:hover, &:focus, &:active {
-					width: 80%;
-					filter: blur(0.08rem);
+					//width: 80%;
+					filter: blur(0);
+					outline: none;
+					font-size: 1rem;
+					color: $color__white;
+
+					&:after {
+						filter:blur(0.08rem);
+						width: 1.5rem;
+  					margin-right: 0.25rem;
+					}
 				}
 			}
 
 			&.current-menu-item {
-				a {
-					width: 80%;
-					filter: blur(0.08rem);
+				a:after {
+					filter:blur(0.08rem);
+					width: 1.5rem;
+  				margin-right: 0.25rem;
 				}
 			}
 		}
@@ -90,32 +110,32 @@ body.tax-series {
 	}
 }
 
-body.single,
-body.page.page-template-page-about {
-	.main-navigation {
-		ul {
-			li {
-				a {
-					&[href*='mix'] {
-						background-image: url($image__icon-index-black);
-					}
-	
-					&[href*='about'] {
-						background-image: url($image__icon-about-black);
-					}
-	
-					&[href*='dice'] {
-						background-image: url($image__icon-dice-black);
-					}
-	
-					&[href*='acid'] {
-						background-image: url($image__icon-acid-black);
-					}
-				}
-			}
-		}
-	}
-}
+//body.single,
+//body.page.page-template-page-about {
+//	.main-navigation {
+//		ul {
+//			li {
+//				a {
+//					&[href*='mix'] {
+//						background-image: url($image__icon-index-black);
+//					}
+//	
+//					&[href*='about'] {
+//						background-image: url($image__icon-about-black);
+//					}
+//	
+//					&[href*='dice'] {
+//						background-image: url($image__icon-dice-black);
+//					}
+//	
+//					&[href*='acid'] {
+//						background-image: url($image__icon-acid-black);
+//					}
+//				}
+//			}
+//		}
+//	}
+//}
 
 .admin-bar .main-navigation {
 	ul {

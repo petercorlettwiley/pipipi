@@ -5,19 +5,19 @@ body.acid.page.page-template-page-about {
     ul {
       li {
         a {
-          &[href*='mix'] {
+          &[href*='mix']:after {
             background-image: url($image__icon-acid-index);
           }
   
-          &[href*='about'] {
+          &[href*='about']:after {
             background-image: url($image__icon-acid-about);
           }
   
-          &[href*='dice'] {
+          &[href*='dice']:after {
             background-image: url($image__icon-acid-dice);
           }
   
-          &[href*='acid'] {
+          &[href*='acid']:after {
             background-image: url($image__icon-acid-acid);
           }
         }

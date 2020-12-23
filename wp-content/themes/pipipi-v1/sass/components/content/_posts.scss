@@ -34,7 +34,7 @@ body.single-mix {
         .column-left {
           display: flex;
           flex-direction: row;
-          flex-wrap: wrap;
+          //flex-wrap: wrap;
           margin-bottom: 2rem;
           padding-bottom: 2rem;
           border-bottom: 1px solid $color__text-screen;
@@ -45,7 +45,7 @@ body.single-mix {
 
           .post-thumbnail {
             width: calc(33% + 2rem);
-            padding-right: 4rem;
+            padding-right: 2rem;
           }
 
           .mix-meta {

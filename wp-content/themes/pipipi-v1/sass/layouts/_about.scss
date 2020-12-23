@@ -24,7 +24,7 @@ body.page.page-template-page-about {
     display: flex;
     align-items: center;
     justify-content: center;
-    $blur: 10px;
+    $blur: 6px;
     -webkit-filter: blur($blur);
     -moz-filter: blur($blur);
     -o-filter: blur($blur);

@@ -19,7 +19,7 @@ $nav_button_margin: 0.5rem;
 		li {
 			display: flex;
   		justify-content: center;
-  		margin-left: $nav_button_margin;
+  		margin-left: $nav_button_margin*2;
 
 			a {
 				margin-left: auto;
@@ -32,7 +32,7 @@ $nav_button_margin: 0.5rem;
 				&:after {
 					content: '';
 					display: block;
-					margin-left: 0.5rem;
+					//margin-left: 0.5rem;
 					width: $nav_button_size;
 					height: $nav_button_size;
 					overflow: hidden;
@@ -63,6 +63,7 @@ $nav_button_margin: 0.5rem;
 					filter: blur(0);
 					outline: none;
 					font-size: 0;
+
 					&:after {
 						filter: blur(0);
 						width: $nav_button_size;
@@ -73,13 +74,14 @@ $nav_button_margin: 0.5rem;
 				&:hover {
 					filter: blur(0);
 					outline: none;
-					font-size: 1rem;
+					font-size: 0;
 					color: $color__white;
 
 					&:after {
 						filter:blur(0.08rem);
 						width: 1.5rem;
   					margin-right: 0.25rem;
+  					margin-left: 0.25rem;
 					}
 				}
 			}
@@ -168,6 +170,18 @@ body.tax-series {
 			li {
 				margin-bottom: $nav_button_margin;
   			margin-left: 0;
+
+  			a {
+  				&:after {
+  					margin-left: 0.5rem;
+  				}
+  				&:hover {
+						font-size: 1rem;
+						&:after {
+							margin-left: 0.5rem;
+						}
+					}
+  			}
 			}
 		}
 	}

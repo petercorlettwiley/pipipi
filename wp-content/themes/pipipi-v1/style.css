@@ -762,7 +762,7 @@ a.floating-logo:hover {
   list-style-type: none;
   display: flex;
   margin: 0;
-  padding: 1rem 1rem 3rem;
+  padding: 4rem 1rem 3rem;
 }
 .archive #archive-navigation #archive-menu li {
   padding-right: 5rem;
@@ -863,11 +863,11 @@ body.page.page-template-page-about #background {
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
-  -o-filter: blur(10px);
-  -ms-filter: blur(10px);
-  filter: blur(10px);
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: blur(6px);
 }
 body.page.page-template-page-about #background img {
   width: 100%;
@@ -940,7 +940,7 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
 .main-navigation ul li {
   display: flex;
   justify-content: center;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
 }
 .main-navigation ul li a {
   margin-left: auto;
@@ -953,7 +953,6 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
 .main-navigation ul li a:after {
   content: "";
   display: block;
-  margin-left: 0.5rem;
   width: 2rem;
   height: 2rem;
   overflow: hidden;
@@ -988,13 +987,14 @@ body.page.page-template-page-about article.page .entry-content .wp-block-columns
 .main-navigation ul li a:hover {
   filter: blur(0);
   outline: none;
-  font-size: 1rem;
+  font-size: 0;
   color: #fff;
 }
 .main-navigation ul li a:hover:after {
   filter: blur(0.08rem);
   width: 1.5rem;
   margin-right: 0.25rem;
+  margin-left: 0.25rem;
 }
 .main-navigation ul li.current-menu-item a:after {
   filter: blur(0.08rem);
@@ -1025,6 +1025,15 @@ body.tax-series .main-navigation ul li a[href*=mix] {
     margin-bottom: 0.5rem;
     margin-left: 0;
   }
+  .main-navigation ul li a:after {
+    margin-left: 0.5rem;
+  }
+  .main-navigation ul li a:hover {
+    font-size: 1rem;
+  }
+  .main-navigation ul li a:hover:after {
+    margin-left: 0.5rem;
+  }
 }
 /* Posts and pages
 --------------------------------------------- */
@@ -1051,14 +1060,13 @@ body.single-mix article.mix .entry-content .columns {
 body.single-mix article.mix .entry-content .columns .column-left {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid #fff;
 }
 body.single-mix article.mix .entry-content .columns .column-left .post-thumbnail {
   width: calc(33% + 2rem);
-  padding-right: 4rem;
+  padding-right: 2rem;
 }
 body.single-mix article.mix .entry-content .columns .column-left .mix-meta {
   font-size: 0.75rem;
@@ -1121,7 +1129,7 @@ body.single-mix article.mix .entry-content .nav-links div.nav-next {
   }
 }
 body.page article.page {
-  padding: 2rem 1rem;
+  padding: 4rem 1rem 3rem;
   max-width: 65rem;
 }
 

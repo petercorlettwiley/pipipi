@@ -30,10 +30,16 @@ body.acid {
   #background-video {
     display: none;
   }
+  #background-video-mobile {
+    display: none;
+  }
 }
 
 body:not(.acid) {
   #background-video-acid {
+    display: none;
+  }
+  #background-video-acid-mobile {
     display: none;
   }
 }

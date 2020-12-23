@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: PC Wiley
 Author URI: http://www.pcwiley.net
 Description: PiPiPi wordpress theme v1
-Version: 1.0.5
+Version: 1.0.6
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -749,15 +749,40 @@ a.floating-logo:hover {
 
 #background-video,
 #background-video-acid {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left: 0;
+  display: none;
 }
 
+#background-video-mobile,
+#background-video-acid-mobile {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+
+@media screen and (min-width: 783px) {
+  #background-video,
+#background-video-acid {
+    display: block;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+
+  #background-video-mobile,
+#background-video-acid-mobile {
+    display: none;
+  }
+}
 .archive #archive-navigation #archive-menu {
   list-style-type: none;
   display: flex;
@@ -1359,7 +1384,13 @@ body.acid.page.page-template-page-about .main-navigation ul li a[href*=acid]:aft
 body.acid #background-video {
   display: none;
 }
+body.acid #background-video-mobile {
+  display: none;
+}
 
 body:not(.acid) #background-video-acid {
+  display: none;
+}
+body:not(.acid) #background-video-acid-mobile {
   display: none;
 }

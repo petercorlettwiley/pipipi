@@ -18,11 +18,46 @@ a.floating-logo {
 
 #background-video,
 #background-video-acid {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
+  //object-fit: cover;
+  //width: 100vw;
+  //height: 100vh;
+  //position: fixed;
+  //z-index: -1;
+  //top: 0;
+  //left: 0;
+  display: none;
+}
+
+#background-video-mobile,
+#background-video-acid-mobile {
   position: fixed;
-  z-index: -1;
-  top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+
+@media screen and (min-width: $breakpoint__mobile) {
+
+  #background-video,
+  #background-video-acid {
+    display: block;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+
+  #background-video-mobile,
+  #background-video-acid-mobile {
+    display: none;
+  }
+
 }

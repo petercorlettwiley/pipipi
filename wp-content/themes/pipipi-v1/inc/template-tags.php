@@ -330,18 +330,26 @@ if ( ! function_exists( 'pipipi_get_bg_video' ) ) :
 		
 		$bg_video_id = get_theme_mod('background_video');
 		$bg_video_acid_id = get_theme_mod('background_video_acid');
+		$bg_video_mobile_id = get_theme_mod('background_video_mobile');
+		$bg_video_acid_mobile_id = get_theme_mod('background_video_acid_mobile');
 
 		//wp_get_attachment_url(get_theme_mod('background_video'));
 
 		if( $bg_video_id && $bg_video_acid_id ){
 			$bg_video_src = wp_get_attachment_url( $bg_video_id );
 			$bg_video_acid_src = wp_get_attachment_url( $bg_video_acid_id );
+			$bg_video_mobile_src = wp_get_attachment_url( $bg_video_mobile_id );
+			$bg_video_acid_mobile_src = wp_get_attachment_url( $bg_video_acid_mobile_id );
+
+			$bg_video_mobile = '<div id="background-video-mobile" style="background-image: url(' . $bg_video_mobile_src . ');"></div>';
+
+			$bg_video_mobile_acid = '<div id="background-video-acid-mobile" style="background-image: url(' . $bg_video_acid_mobile_src . ');"></div>';
 
 			$bg_video_normal = '<video playsinline autoplay muted loop id="background-video"><source src="' . $bg_video_src . '" type="video/mp4"></video>';
 
 			$bg_video_acid = '<video playsinline autoplay muted loop id="background-video-acid"><source src="' . $bg_video_acid_src . '" type="video/mp4"></video>';
 
-			return $bg_video_normal . $bg_video_acid;
+			return $bg_video_mobile . $bg_video_mobile_acid . $bg_video_normal . $bg_video_acid;
 
 		} else {
 			return false;

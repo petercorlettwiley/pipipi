@@ -72,6 +72,28 @@ function pipipi_v1_customize_register( $wp_customize ) {
 		'settings'   => 'background_video_acid',
 		'mime_type' => 'video',
 	) ) );
+
+	$wp_customize->add_setting( 'background_video_mobile' , array(
+    'transport' => 'refresh',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'mobile_bg', array(
+		'label'      => __( 'Mobile Background', 'pipipi-v1' ),
+		'section'    => 'background_image',
+		'settings'   => 'background_video_mobile',
+		'mime_type' => 'image',
+	) ) );
+
+	$wp_customize->add_setting( 'background_video_acid_mobile' , array(
+    'transport' => 'refresh',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'mobile_bg_acid', array(
+		'label'      => __( 'Mobile Background Acid', 'pipipi-v1' ),
+		'section'    => 'background_image',
+		'settings'   => 'background_video_acid_mobile',
+		'mime_type' => 'image',
+	) ) );
 }
 add_action( 'customize_register', 'pipipi_v1_customize_register' );
 

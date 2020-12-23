@@ -33,6 +33,15 @@ function makeClones () {
   }
 
   clones = context.querySelectorAll('.is-clone');
+
+  var cloneWidth = context.querySelectorAll('.is-clone')[1].offsetLeft - context.querySelectorAll('.is-clone')[0].offsetLeft;
+
+  var destination = context.querySelectorAll('.is-clone')[0].offsetLeft - windowWidth/2 + cloneWidth/2;
+
+  context.scrollTo({
+    left: destination
+  });
+  //console.log(context.querySelectorAll('.is-clone')[0].offsetLeft);
 }
 
 function getClonesWidth () {

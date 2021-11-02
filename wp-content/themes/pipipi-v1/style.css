@@ -65,6 +65,15 @@ h6:last-child {
   margin-bottom: 0;
 }
 
+.text-outline, a, p, h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 @keyframes blinker {
   50% {
     opacity: 0;

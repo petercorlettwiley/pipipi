@@ -17,3 +17,11 @@ $font__line-height-body: 1.25;
     margin-bottom: 0;
   }
 }
+
+.text-outline {
+  text-shadow:
+   -1px -1px 0 $color__black,  
+    1px -1px 0 $color__black,
+    -1px 1px 0 $color__black,
+     1px 1px 0 $color__black;
+}

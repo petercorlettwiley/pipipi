@@ -1,4 +1,5 @@
 a {
+	@extend .text-outline;
 	color: $color__link;
 	//transition: color 0.2s;
 

@@ -11,6 +11,7 @@ pipipi.sublime-project
 pipipi.sublime-workspace
 wp-content/themes/pipipi-v1/config.codekit3
 wp-content/plugins/config.codekit3
+wp-content/ai1wm-backups/
 
 # wordpress specific
 wp-config.php
